@@ -2370,6 +2370,9 @@ modules:
 strip:
 	$(CROSS_COMPILE)strip $(MODULE_NAME).ko --strip-unneeded
 
+modules_install:
+	$(MAKE) -C $(KSRC) M=$(shell pwd) modules_install
+
 install:
 	install -p -m 644 $(MODULE_NAME).ko  $(MODDESTDIR)
 	/sbin/depmod -a ${KVER}
